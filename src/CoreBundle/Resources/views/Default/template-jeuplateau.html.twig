@@ -9,7 +9,7 @@
 
 </head>
 <body>
-{{ render(controller('CoreBundle:Header:generateHeader', { "projets" : projets, "path": path })) }}
+{{ render(controller('CoreBundle:Header:generateHeader', { "projets" : projets, "path": path, "personal_projects": personal_projects })) }}
 <div class="content">
     <div class='container-fluid main-container'>
 
@@ -99,4 +99,3 @@
 
 
 </html>
-
