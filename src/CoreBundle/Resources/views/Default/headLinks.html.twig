@@ -1,0 +1,15 @@
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ pagename | trans }}</title>
+
+
+    <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}" />
+    <meta name="description" content="Guillaume Bretzner, développeur Web" />
+
+    {% stylesheets filter='scssphp, cssrewrite' output="css/base.css"
+    'css/style.css'
+    'css/header.css'
+
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}

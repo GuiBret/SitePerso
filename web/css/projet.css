@@ -1,0 +1,156 @@
+#nom_projet {
+    margin-bottom:3rem;
+}
+
+.cdc-title {
+    border-bottom:1px solid green;
+    cursor:pointer;
+}
+
+.projet-arrow {
+    float:right;
+}
+
+.cdc-content {
+    display:none;
+}
+
+.cdc-content img {
+    width:80%;
+}
+
+
+
+.btn-projet {
+    display:block;
+    background-color:green;
+    padding:5px 10px 5px 10px;
+    color:white;
+    border-radius:5px 5px;
+    text-decoration: none;
+    font-weight:bold;
+    font-family:"Roboto Slab";
+
+}
+.cdc {
+    margin-bottom:3rem;
+    padding-left:0;
+}
+
+.btn-projet:hover {
+
+    transform:scale(1.1,1.1);
+    transition-duration:200ms;
+    color:white;
+    text-decoration:none;
+}
+
+.toggled {
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -moz-transform: rotate(-90deg); /* Firefox */
+    -webkit-transform: rotate(-90deg); /* Safari & Chrome */
+    -o-transform: rotate(-90deg); /* Opera */
+    transition-duration:0.5s;
+}
+
+.disabled {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg); /* IE 9 */
+    -moz-transform: rotate(0deg); /* Firefox */
+    -webkit-transform: rotate(0deg); /* Safari & Chrome */
+    -o-transform: rotate(0deg); /* Opera */
+    transition-duration:0.5s;
+}
+
+#liens {
+    margin-bottom:2rem;
+}
+
+figure {
+    text-align:center;
+}
+
+figcaption {
+    margin:auto; /* Centrer le texte */
+    font-style:italic;
+}
+
+.ace-openclassrooms { /* Spécifique à l'avis de restaurants */
+    background-color: black;
+    color: white;
+
+}
+
+#liste-competences {
+    list-style:none;
+}
+
+#bloc-description {
+    margin-bottom:3rem;
+}
+
+#bloc-competences, #bloc-liens {
+    margin-bottom:1.5rem;
+}
+
+.elem-competence:before {
+    content: "";
+    display:inline-block;
+    height:0.7rem;
+    width:0.7rem;
+    background-size: 0.7rem;
+    background-image:url("../../img/arrow-skill.svg");
+    background-repeat:no-repeat;
+    margin-right:1rem;
+
+}
+
+
+/* Carousel */
+
+.carousel {
+    max-width:95%;
+}
+
+.slick-arrow:before {
+    color:green; /* Invisible with white background */
+}
+
+.slick-slide img {
+    max-width:95%;
+    height:auto;
+    margin:auto;
+}
+
+.placeholder {
+    font-style:italic;
+}
+/* Media query mobile */
+@media only screen and (max-device-width:768px) {
+    #titre-description-projet {
+        margin-top:2rem;
+        margin-bottom:1rem;
+    }
+
+    .span-btn-projet {
+        margin-bottom:1rem;
+    }
+
+    .carousel {
+        max-width:92%;
+        margin:auto;
+    }
+}
+
+/* Media query tablette & + */
+@media only screen and (min-device-width:768px) {
+    #titre-description-projet {
+        margin-top:2rem;
+        margin-bottom:1rem;
+    }
+
+    .span-btn-projet {
+        margin-right:1rem;
+    }
+}

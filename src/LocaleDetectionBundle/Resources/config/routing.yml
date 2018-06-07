@@ -1,0 +1,3 @@
+locale:
+    path: /
+    defaults: {_controller: LocaleDetectionBundle:Default:index}

@@ -1,0 +1,30 @@
+.tooltip-image {
+    height:100%;
+    width:100%;
+    filter:brightness(50%)
+}
+
+
+/* Overriding bootstrap.min.css */
+.tooltip-inner {
+    height:300px;
+    max-width:600px;
+    width:600px;
+}
+
+.tooltip-overlay {
+    position:absolute;
+    bottom:0;
+    width: calc(100% - 26px); /* 8*2 (.tooltip-inner's paddings) + 5px (.tooltip-inner::before (arrow) + 5px (???)) = 26px */
+}
+
+.tooltip-title {
+    font-family: "Roboto Slab";
+    font-weight: bold;
+    font-size: 1.2rem;
+
+}
+
+#form-technologies {
+    margin-bottom:2rem;
+}

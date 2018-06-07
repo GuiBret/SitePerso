@@ -1,0 +1,67 @@
+<div class='page-header text-center'>
+    <div id="header-text">
+        <h1 class="header-title">Guillaume Bretzner</h1>
+        <h2 class="header-subtitle">{% trans %}Développeur Web Junior{% endtrans %}</h2> <br />
+
+    </div>
+</div>
+
+<nav class='navbar navbar-toggleable-md bg-faded navbar-light'>
+
+
+    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="true" aria-controls="nav" aria-label="Navigation" >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Navigation</a>
+
+    <div class='collapse navbar-collapse' id="nav" aria-expanded="false" role="container-bouton-navbar">
+        <ul class='navbar-nav mx-auto text-center'>
+            <li class="nav-item">
+                <a href="/{{ app.request.locale }}/" id='header-index-link' class='nav-link'>{{ "Accueil" | trans }}</a>
+            </li>
+            <li class='dropdown nav-item' id="dropdown-projets">
+                <a class='nav-link dropdown-toggle' href="#" id="dropdownMenu" aria-haspopup="true" aria-expanded="true" data-toggle="dropdown">{{ "Mes réalisations" | trans }}</a>
+
+
+                <ul class='dropdown-menu' id="first-level-dropdown" aria-labelledby="dropdownMenu">
+                     <li class="dropdown-formation nav-item" id="dropdown-formation">
+                        <a class="dropdown-item dropdown-toggle" id="btn-dropdownformation" aria-haspopup="true" aria-expanded="true">Formation</a>
+                        <ul class="dropdown-menu dropdown-formation">
+                            {% for projet in projets %}
+                                <li class="nav-item"><a href="/{{ app.request.locale }}/projets/{{ projet.nom_short }}" id="elem-{{ projet.nom_short }}-form" class='dropdown-item'>{{ projet.nom | trans }} </a></li>
+                            {% endfor %}
+
+                        </ul>
+                    </li>
+                    <li class="dropdown-perso nav-item" id="dropdown-perso">
+                       <a class="dropdown-item dropdown-toggle" id="btn-dropdownperso" aria-haspopup="true" aria-expanded="true">{{"Projets personnels" | trans }}</a>
+                       <ul class="dropdown-menu dropdown-perso">
+                           {% for projet in personal_projects %}
+                               <li class="nav-item"><a href="/{{ app.request.locale }}/projets/{{ projet.nom_short }}" id="elem-{{ projet.nom_short }}-form" class='dropdown-item'>{{ projet.nom | trans }} </a></li>
+                           {% endfor %}
+
+                       </ul>
+                   </li>
+                    <li>
+                        <a href="/{{ app.request.locale }}/competences" class="dropdown-item">{% trans %}Par technologie{% endtrans %}</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="nav-item">
+                <a href="/{{ app.request.locale }}/contact" id="header-contact-link" class="nav-link">{{ "Me contacter" | trans }}</a>
+            </li>
+            <li class="nav-item item-container-langue">
+                <a href="#" id="curr-language" class="nav-link"><img src={{  "/img/flags/#{app.request.locale}.png" }} alt="drapeau-actuel"/></a>
+                <div id="language-selector">
+                    <div class="container-fluid row">
+                        <ul class="liste-langues d-flex flex-column flex-md-row">
+                            <li class="col-6 offset-3 offset-md-0 col-md-6 text-center"><a href="/en/{{ path }}" class="language-link"><img class="img-selection-langue" src="/img/flags/en.png" alt="drapeau-en" />English</a></li>
+                            <li class="col-6 offset-3 offset-md-0 col-md-6 text-center"><a href="/fr/{{ path }}" class="language-link"><img class="img-selection-langue" src="/img/flags/fr.png" alt="drapeau-fr" />Français</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

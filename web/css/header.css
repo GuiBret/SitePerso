@@ -1,0 +1,181 @@
+.page-header {
+    margin: 0;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height:35vh;
+    position:relative;
+}
+
+.header-title, .header-subtitle {
+    color:white;
+    font-family:"Roboto Slab";
+}
+
+.header-title {
+    font-size:3rem;
+}
+
+.header-subtitle {
+    font-size:1.8rem;
+}
+
+.liste-langues {
+    padding-left:0; /* Pour éviter le décalage entre le début du div et le contenu, ce qui écrase le language-panel*/
+}
+
+.liste-langues, .liste-langues > * {
+
+    display:flex;
+    justify-content:space-between;
+    padding:0;
+    width:100%;
+}
+
+.img-selection-langue {
+    margin-right:0.5rem;
+}
+
+.nav-item {
+    font-size:0.95rem;
+}
+
+.dropdown-menu {
+    position:absolute;
+    min-width:250px; /* Eviter dépassement texte */
+    box-shadow:5px 5px rgba(0,0,0,0.2);
+}
+
+#header-text {
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 39px);
+}
+
+#dropdown-projets {
+    position:relative;
+}
+
+#dropdown-formation, #dropdown-perso {
+    padding:0; /* Avoids ugly effect on hover (bc of .nav-item) */
+}
+
+.anim-turn-caret:after {
+    transform:rotate(-90deg);
+    transition-duration: .3s ease-in-out;
+}
+
+
+/* Les liens sont en gris par défaut */
+.nav-link {
+    color:black !important;
+}
+
+#language-selector {
+    position:absolute;
+    background-color:dimgray;
+    width:300px;
+    padding-top:10px;
+    padding-bottom:10px;
+
+
+}
+
+.dropdown-item {
+    cursor:pointer;
+}
+
+
+#language-selector li {
+    list-style-type:none;
+    display:block;
+}
+
+#curr-language img {
+    height:100%;
+}
+
+
+.language-link, .language-link:hover, .language-link:active, .language-link:link {
+    text-decoration:none;
+    color:white;
+}
+
+.nav-fixed {
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:9999;
+    width:100%;
+
+}
+
+/* Media query laptop & + */
+@media only screen and (min-device-width:961px) {
+    .nav-item {
+        padding-left: 30px;
+        padding-right: 30px;
+
+    }
+
+    #language-selector {
+        display:none;
+        height:auto;
+        max-height:50px; /* Régler problème jumping */
+
+    }
+    .page-header {
+        background-image: url("../img/header-img.jpg");
+    }
+
+    #first-level-dropdown {
+        /*max-height:75px;*/
+        opacity:.95;
+    }
+}
+/* Media query phone + tablet*/
+@media only screen and (max-device-width:961px) {
+    .header-title {
+        font-size:2rem;
+    }
+    .header-subtitle {
+        font-size:1.4rem;
+    }
+
+    @keyframes slide-language {
+        0% {
+            height:0;
+            padding-top:0px;
+            padding-bottom:0px;
+        }
+        100% {
+            height:80px;
+            padding-top:10px;
+            padding-bottom:10px;
+        }
+    }
+    #language-selector {
+        position:relative;
+        display:none;
+
+        width:100%;
+    }
+
+    .page-header {
+        background-image: url("../img/mobile/header-img.jpg");
+    }
+
+    ul.dropdown-formation {
+        background-color:lightgray;
+    }
+
+}
+/* Media query tablette */
+@media only screen and (min-device-width:386px) and (max-device-width:961px)  {
+
+    #language-selector {
+        width:100%;
+    }
+
+}

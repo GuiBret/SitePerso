@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html>
+    <head>
+        {{ include("CoreBundle:Default:headLinks.html.twig", {"pagename":pagename }) }}
+        <link rel="stylesheet" href="{{ asset("/p/AvisRestaurants/css/main.css") }}" type="text/css" />
+
+    </head>
+    <body>
+    {{ render(controller('CoreBundle:Header:generateHeader', { "projets" : projets, "path": path })) }}
+
+        <div class='container-fluid content'>
+            <h1 class="page-title">Sokonyan</h1>
+            {{ include("@DossierSokoban/index.html")  }}
+
+
+        </div>
+    {{ include('CoreBundle:Default:footer.html.twig') }}
+
+    {{ include ("CoreBundle:Default:scriptLinks.html.twig") }}
+
+    <script type="text/javascript" src="{{ asset("/p/Sokoban/libs/requirejs/require.js") }}" data-main="{{ asset("/p/Sokoban/requireConfig.js?v=1.1") }}"></script>
+    </body>
+
+
+</html>
+

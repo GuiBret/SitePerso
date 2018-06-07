@@ -1,0 +1,27 @@
+## YAML Template.
+index:
+    path: /
+    defaults: { _controller: CoreBundle:Index:index }
+    
+projet:
+    path: /projets/{id}
+    defaults: { _controller: CoreBundle:Projet:view }
+    
+contact:
+    path: /contact/
+    defaults: { _controller: CoreBundle:Contact:generateForm }
+    
+mes-projets:
+    path: /mes-projets/{nom_projet}
+    defaults: { _controller: CoreBundle:MesProjets:getProjet }
+
+projet-competences:
+    path: /competences
+    defaults: { _controller: CoreBundle:ProjetCompetence:pageCompetences}
+
+apropos:
+    path: /aboutme
+    defaults: { _controller: CoreBundle:AboutMe:pageAboutMe}
+
+ 
+

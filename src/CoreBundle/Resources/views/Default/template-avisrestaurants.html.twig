@@ -1,0 +1,69 @@
+<!doctype html>
+
+<html lang="fr">
+    <head>
+        {{ include("CoreBundle:Default:headLinks.html.twig", {"pagename":pagename }) }}
+        <meta name="theme-color" content="#ff2828">
+
+        <link defer rel="stylesheet" href="{{ asset("/p/AvisRestaurants/css/main.css") }}" type="text/css" />
+        <link rel="manifest" href="{{ asset("/p/AvisRestaurants/manifest.webmanifest") }}" />
+    </head>
+    <body>
+    {{ render(controller('CoreBundle:Header:generateHeader', { "projets" : projets, "path": path, "personal_projects": personal_projects })) }}
+
+        <div class='container-fluid content'>
+            <h1 class="page-title text-center">{% trans %}Application d'avis de restaurants{% endtrans %}</h1>
+
+            <p class="hidden-md-up" id="avertissement-mobile">Vous utilisez un périphérique mobile, et pour des raisons de visibilité, la liste des restaurants n'est pas visible dans ce format. Pour la voir, veuillez mettre Google Maps en plein écran, puis cliquer sur "Afficher les résultats".</p>
+            <div id='interface' class="row">
+                <div id='carte' class='col-12 col-md-7 offset-md-1'></div>
+
+                <div id="right-part" class="hidden-sm-down col-md-3">
+                    <p id="afficher-restaurants-fullscreen">Afficher les résultats</p>
+                    <div id='filtre' style='display:none;'><span>{% trans %}Afficher les restaurants entre{% endtrans %}<span class='note filtre_min'>0</span>{% trans %}et {% endtrans %}<span class='note filtre_max'>5</span>{% trans %}étoiles{% endtrans %}</span></div>
+                    <div id="panel-restaurants">
+
+                        <div id='liste_restaurants' class="d-flex flex-column"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        {{ include('CoreBundle:Default:footer.html.twig') }}
+
+        {{ include ("CoreBundle:Default:scriptLinks.html.twig") }}
+
+            <script type='text/javascript' src='{{asset("/p/AvisRestaurants/js/Restaurant.js")}}'></script>
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/ListeAvis.js") }}'></script>
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/ListeRestaurants.js") }}'></script>
+
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/utils.js") }}'></script>
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/localization.js") }}'></script>
+
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/fcts_avis.js") }}'></script>
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/add-new-restaurant.js")}}'></script>
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/fcts_restaurants.js") }}'></script>
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/ajax.js") }}'></script>
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/fullscreenview.js") }}'></script>
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/configuration.js") }}'></script>
+
+            <script type='text/javascript' src='{{ asset("/p/AvisRestaurants/js/main.js") }}'></script>
+
+
+
+
+
+    <script src="{{ asset("/p/AvisRestaurants/js/markerclusterer.js") }}">
+    </script>
+
+            <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0">
+    </script>
+
+
+
+    </body>
+
+
+</html>

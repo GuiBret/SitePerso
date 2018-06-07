@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="{{ app.request.locale }}">
+<head>
+    {{ include("CoreBundle:Default:headLinks.html.twig", {"pagename":pagename }) }}
+    {% stylesheets filter='cssrewrite, scssphp'
+    'css/gallery.css'
+    'css/index.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+
+    <link rel="stylesheet" href="{{asset('css/competences.css')}}"  />
+</head>
+<body>
+{{ render(controller('CoreBundle:Header:generateHeader', { "projets" : projets, "path": path, "personal_projects": personal_projects })) }}
+<div class='container-fluid content'>
+
+    <h1 class="page-title text-center">{% trans %}Classement par technologie {% endtrans %}</h1>
+
+    <p>{% trans %}Par défaut, vous pouvez voir une liste de la totalité de mes réalisations actuellement sur le site. {% endtrans %} {% trans %}En cliquant sur une (ou plusieurs) des checkboxes, vous pouvez sélectionner uniquement les projets utilisant la technologie qui vous intéresse. {% endtrans %}</p>
+    <form id="form-technologies">
+        <label class="custom-control custom-checkbox">
+            <input type="checkbox" name="check-all" class="check-techno custom-control-input" checked />
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">{% trans %}Tous {% endtrans %}</span>
+        </label>
+        {% for skill in competences %}
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="check-techno custom-control-input check-specifictechnology" name="{{ skill.nom_min }}" />
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">{{ skill.nom_fct }}</span>
+            </label>
+
+        {% endfor %}
+
+    </form>
+    <div id="projects-container" class="col-12 col-md-4 offset-md-5">
+        <ul id="projets-concernes">
+            {% for projet in projets %}
+
+                <li><a data-toggle="tooltip" data-placement="bottom" title="<img src='/img/screen-{{ projet.nom_short}}.png')' class='tooltip-image' /><div class='tooltip-overlay'><span class='tooltip-title'>{{projet.nom}}</span><p>{{projet.texte}}...</p></div>" href="/{{ app.request.locale }}/projets/{{ projet.nom_short }}">{{ projet.nom }}</a></li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+
+
+</div>
+{{ include('CoreBundle:Default:footer.html.twig') }}
+
+{{ include("CoreBundle:Default:scriptLinks.html.twig") }}
+
+{% javascripts  '@CoreBundle/Resources/public/js/competences.js'%}
+<script defer src={{ asset_url }}></script>
+{% endjavascripts %}
+
+
+
+
+</body>
+
+
+</html>

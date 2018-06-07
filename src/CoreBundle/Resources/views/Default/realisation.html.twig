@@ -1,0 +1,22 @@
+<!doctype html>
+
+<html>
+    <head>
+        {{ include("CoreBundle:Default:headLinks.html.twig", {"pagename":pagename }) }}
+    </head>
+    <body>
+        <div class='container-fluid'>
+
+
+            {{ include("p/AvisRestaurants/index.php") }}
+        </div>
+            {{ include('CoreBundle:Default:footer.html.twig') }}
+
+            <script type='text/javascript' src="{{ asset("js/gallery.js") }}"></script>
+            <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+            <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.6/dist/js/bootstrap.min.js"></script>
+
+    </body>
+
+
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+
+
+<html>
+    <head>
+        {{ include("CoreBundle:Default:headLinks.html.twig", {"pagename":pagename }) }}
+    </head>
+
+    <body>
+    {{ render(controller('CoreBundle:Header:generateHeader', { "projets" : projets, "path": path })) }}
+    <div class="container-fluid content">
+        <h1 class="text-center main-title">{{ pagename }}</h1>
+
+
+    </div>
+
+    {{ include('CoreBundle:Default:footer.html.twig') }}
+
+    {{ include("CoreBundle:Default:scriptLinks.html.twig") }}
+
+    </body>
+</html>
+
+

@@ -1,0 +1,58 @@
+'Développeur Web Junior': 'Junior Web Developer'
+'Projet Sokonyan': 'Project Sokonyan'
+"Bonjour": "Hello"
+'ce site est actuellement en construction': 'my website is currently under construction'
+'En attendant, vous pouvez aller voir les projets suivants': 'Meanwhile, you can check out the following projects'
+'Mes réalisations': 'My projects'
+Accueil: Home
+Langue: Language
+
+"Guillaume Bretzner, développeur Web": "Guillaume Bretzner, Web Developer"
+'Me contacter': 'Contact me'
+'Cahier des charges': Specifications
+'Aller vers le projet': 'Go to the project'
+'Voir le depôt GitHub': 'GitHub repository'
+'Description du projet': 'Project summary'
+'Projet Chalets & Caviar': 'Project Chalets & Caviar'
+'Projet Festival de films': 'Project In-air Movies Festival'
+'Projet Jeu Plateau': 'Project Boardgame'
+'Technologies utilisées': 'Implemented technologies'
+"Audit de performances": "Performance audit"
+"Liens": "Links"
+"Ressources": "Resources"
+"Projet Avis Restaurants": "Project Restaurant Reviews"
+"Tous les projets et le site sont responsive, donc n'hésitez pas à essayer avec des périphériques différents !": "All projects and the website are responsive, so feel free to try them with different devices !"
+"Votre nom": "Type your name"
+"Votre e-mail": "Type your email"
+"Votre message": "Type your message"
+"Si le formulaire ne fonctionne pas, vous pouvez me contacter par email en cliquant": "If the form contact doesn't work, you can contact me by e-mail by clicking"
+"ici": "here"
+"Formulaire de contact": "Contact form"
+"Variantes": "Variations"
+"Jeu Plateau Node.js": "Node.js Boardgame"
+"Bienvenue sur mon site,": "Welcome on my website,"
+"Celui-ci présente l'intégralité de mes projets (qu'ils aient été réalisés dans le cadre de ma formation ou qu'ils soient personnels). Vous pouvez voir ci-dessous une galerie montrant les principaux.": "It features all of my projects (whether they've been created within my training or personally). You can see below a gallery displaying the main ones."
+"Si vous souhaitez sélectionner les projets par technologie utilisée, cliquez": "If you wish to check only the projects using a specific technology, please click "
+"ou sélectionnez \"Mes réalisations => \"Par technologie\" dans le menu.": "or select \"My projects\" => \"By technology\" in the dropdown menu."
+"Par technologie": "By technology"
+
+"Classement par technologie": "Selection by technology"
+"Par défaut, vous pouvez voir une liste de la totalité de mes réalisations actuellement sur le site.": "By default, you can see a list of all of my projects that are currently on the website."
+"En cliquant sur une (ou plusieurs) des checkboxes, vous pouvez sélectionner uniquement les projets utilisant la technologie qui vous intéresse.": "By clicking one (or several) checkboxes, you can select only the projects using the technologies in which you are interested."
+"Tous": "All"
+
+
+
+# Projet Avis restaurants
+"Application d'avis de restaurants": "Restaurant Reviews app"
+"Afficher les restaurants entre": "Show restaurants between"
+"et": "and"
+"étoiles": "stars"
+"Avis de restaurants": "Restaurant Reviews"
+
+"Projet Citations": "Quotes Project"
+"Résultats Football": "Football Results"
+
+
+"Backend résultats": "Results backend"
+"Projets personnels": "Personal projects"

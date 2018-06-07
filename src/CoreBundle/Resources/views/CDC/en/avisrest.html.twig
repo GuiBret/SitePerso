@@ -1,0 +1,161 @@
+<div class="col-12">
+
+    <div class="col9 col11-s col__small-padding--right">
+
+        <div class="course-content space-bottom-big">
+            <div class="userContent userContent--smallCourse js-userContent" data-javascript-enabled="">
+
+                <h2>Statement</h2>
+
+                <p id="r-3504566" data-claire-element-id="5521931">Vous avez choisi de vous lancer dans le business des avis de restaurants. Votre objectif : créer un service simple et utile qui permet d'avoir des avis sur des restaurants autour de soi.</p>
+
+                <p id="r-3528506" data-claire-element-id="5521951">Pour ce projet, vous allez devoir apprendre à utiliser des API externes, telles que celles de Google Maps et de&nbsp;Google Places (votre plus gros concurrent). Et ce n'est pas tout&nbsp;: vous allez devoir orchestrer toutes ces informations de manière cohérente dans votre application !</p>
+
+                <h2 id="r-3528525" data-claire-element-id="5522112">Etape 1 : la carte des restaurants</h2>
+
+                <p id="r-3528516" data-claire-element-id="5521952">Commencez par les fondations de votre application. Il y aura 2 sections principales :</p>
+
+                <ul id="r-3528521" data-claire-element-id="5522103">
+
+                    <li id="r-3528518" data-claire-element-id="5522102">
+
+                        <p id="r-3528517" data-claire-element-id="5522101">Une carte Google Maps, chargée avec l'<a href="https://developers.google.com/maps/?hl=fr">API de Google Maps</a></p>
+
+                    </li>
+
+                    <li id="r-3528520" data-claire-element-id="5521956">
+                        <p id="r-3528519" data-claire-element-id="5521955">Une liste de restaurants correspondant à la zone affichée sur la carte Google Maps</p>
+                    </li>
+                </ul>
+
+                <p id="r-3528522" data-claire-element-id="5522104">Vous placerez ces éléments côte à côte.</p>
+
+                <p id="r-3528523" data-claire-element-id="5521959">La carte Google Maps sera centrée immédiatement sur la position de l'utilisateur. Vous utiliserez l'API de géolocalisation de JavaScript. Un marqueur de couleur spécifique sera placé à l'emplacement de l'utilisateur.</p>
+
+                <p id="r-3528524" data-claire-element-id="5522022">Une liste de restaurants est fournie sous forme de données JSON présentées dans un fichier à part. En temps normal, ces données vous seraient&nbsp;renvoyés par un backend via une API, mais pour cet exercice il sera pour le moment suffisant de charger en mémoire tous les restaurants en mémoire directement.</p>
+
+                <p id="r-3528546" data-claire-element-id="5522023">Voici un exemple de fichier JSON avec déjà 2 restaurants pré-remplis (vous devriez en ajouter un peu plus) :</p>
+
+                <pre id="r-3528547" data-claire-element-id="5522024" class="richContainer__blockCode"><code data-claire-semantic="json" data-code="{&quot;language&quot;:&quot;json&quot;,&quot;source&quot;:&quot;[\n   {\n      &amp;#x22;restaurantName&amp;#x22;:&amp;#x22;Bronco&amp;#x22;,\n      &amp;#x22;address&amp;#x22;:&amp;#x22;39 Rue des Petites &amp;#xC9;curies, 75010 Paris&amp;#x22;,\n      &amp;#x22;lat&amp;#x22;:48.8737815,\n      &amp;#x22;long&amp;#x22;:2.3501649,\n      &amp;#x22;ratings&amp;#x22;:[\n         {\n            &amp;#x22;stars&amp;#x22;:4,\n            &amp;#x22;comment&amp;#x22;:&amp;#x22;Un excellent restaurant, j&amp;#x27;y reviendrai ! Par contre il vaut mieux aimer la viande.&amp;#x22;\n         },\n         {\n            &amp;#x22;stars&amp;#x22;:5,\n            &amp;#x22;comment&amp;#x22;:&amp;#x22;Tout simplement mon restaurant pr&amp;#xE9;f&amp;#xE9;r&amp;#xE9; !&amp;#x22;\n         }\n      ]\n   },\n   {\n      &amp;#x22;restaurantName&amp;#x22;:&amp;#x22;Babalou&amp;#x22;,\n      &amp;#x22;address&amp;#x22;:&amp;#x22;4 Rue Lamarck, 75018 Paris&amp;#x22;,\n      &amp;#x22;lat&amp;#x22;:48.8865035,\n      &amp;#x22;long&amp;#x22;:2.3442197,\n      &amp;#x22;ratings&amp;#x22;:[\n         {\n            &amp;#x22;stars&amp;#x22;:5,\n            &amp;#x22;comment&amp;#x22;:&amp;#x22;Une minuscule pizzeria d&amp;#xE9;licieuse cach&amp;#xE9;e juste &amp;#xE0; c&amp;#xF4;t&amp;#xE9; du Sacr&amp;#xE9; choeur !&amp;#x22;\n         },\n         {\n            &amp;#x22;stars&amp;#x22;:3,\n            &amp;#x22;comment&amp;#x22;:&amp;#x22;J&amp;#x27;ai trouv&amp;#xE9; &amp;#xE7;a correct, sans plus&amp;#x22;\n         }\n      ]\n   }\n]&quot;}" class="ace"><div class="ace-openclassrooms"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0">
+                    <div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_lparen">[</span></div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+                        <span class="ace_indent-guide"></span>
+                        <span class="ace_variable">"restaurantName"</span>:<span class="ace_string">"Bronco"</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"address"</span>:<span class="ace_string">"39 Rue des Petites Écuries, 75010 Paris"</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"lat"</span>:<span class="ace_constant ace_numeric">48.8737815</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"long"</span>:<span class="ace_constant ace_numeric">2.3501649</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"ratings"</span>:<span class="ace_paren ace_lparen">[</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_variable">"stars"</span>:<span class="ace_constant ace_numeric">4</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_variable">"comment"</span>:<span class="ace_string">"Un excellent restaurant, j'y reviendrai ! Par contre il vaut mieux aimer la viande."</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_paren ace_rparen">}</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_variable">"stars"</span>:<span class="ace_constant ace_numeric">5</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_variable">"comment"</span>:<span class="ace_string">"Tout simplement mon restaurant préféré !"</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_paren ace_rparen">]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>   <span class="ace_paren ace_rparen">}</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>   <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"restaurantName"</span>:<span class="ace_string">"Babalou"</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"address"</span>:<span class="ace_string">"4 Rue Lamarck, 75018 Paris"</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"lat"</span>:<span class="ace_constant ace_numeric">48.8865035</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"long"</span>:<span class="ace_constant ace_numeric">2.3442197</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_variable">"ratings"</span>:<span class="ace_paren ace_lparen">[</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_variable">"stars"</span>:<span class="ace_constant ace_numeric">5</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_variable">"comment"</span>:<span class="ace_string">"Une minuscule pizzeria délicieuse cachée juste à côté du Sacré choeur !"</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_paren ace_rparen">}</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_variable">"stars"</span>:<span class="ace_constant ace_numeric">3</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_variable">"comment"</span>:<span class="ace_string">"J'ai trouvé ça correct, sans plus"</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span> <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_paren ace_rparen">]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>   <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_rparen">]</span>
+</div></div></div></code></pre>
+                <p id="r-3528548" data-claire-element-id="5522105">Affichez ces restaurants grâce à leurs coordonnées GPS sur la carte.&nbsp;Les restaurants qui sont actuellement visibles sur la carte doivent être affichés&nbsp;sous forme de liste sur le côté de la carte. Vous afficherez la moyenne des commentaires de chaque restaurant (qui va de 1 à 5 étoiles).</p>
+                <p id="r-3528566" data-claire-element-id="5522106">Lorsqu'on clique sur un restaurant, la liste des avis enregistrés s'affiche avec les commentaires.&nbsp;Affichez aussi <a href="https://developers.google.com/maps/documentation/streetview/?hl=fr">la photo Google Street View grâce à l'API correspondante</a>.</p>
+                <p id="r-3528567" data-claire-element-id="5522107">Un outil de&nbsp;filtre permet d'afficher uniquement les restaurants ayant entre X et Y étoiles. La mise à jour de la carte s'effectue en temps réel.</p>
+                <p id="r-3528568" data-claire-element-id="5522108">Fichiers à fournir :</p>
+
+                <ul id="r-3528571" data-claire-element-id="5522111">
+
+
+                    <li id="r-3528570" data-claire-element-id="5522110">
+
+
+                        <p id="r-3528569" data-claire-element-id="5522109">Code HTML / CSS / JS du projet</p>
+
+                    </li>
+
+
+
+                </ul>
+                <h2 id="r-3528584" data-claire-element-id="5522125">Etape 2 : ajoutez des restaurants et des avis !</h2>
+
+                <p id="r-3528572" data-claire-element-id="5522113">Vos visiteurs aimeraient eux aussi donner leur avis sur des restaurants&nbsp;!Proposez-leur :</p>
+
+                <ul id="r-3528577" data-claire-element-id="5522118">
+
+
+                    <li id="r-3528574" data-claire-element-id="5522115">
+
+                        <p id="r-3528573" data-claire-element-id="5522114">D'ajouter un avis sur un restaurant existant</p>
+
+                    </li>
+
+                    <li id="r-3528576" data-claire-element-id="5522117">
+
+                        <p id="r-3528575" data-claire-element-id="5522116">D'ajouter un restaurant, en cliquant sur un lieu spécifique de la carte</p>
+
+                    </li>
+
+                </ul>
+
+                <p id="r-3528578" data-claire-element-id="5522119">Une fois un avis ou un restaurant ajouté, il apparaît immédiatement sur la carte. Un nouveau marqueur apparaît pour indiquer la position du nouveau restaurant.</p>
+
+                <p id="r-3528579" data-claire-element-id="5522120">Les informations ne seront pas sauvegardées si on quitte la page (elles restent juste en mémoire le temps de la visite).</p>
+
+                <p id="r-3528580" data-claire-element-id="5522121">Fichiers à fournir :</p>
+
+                <ul id="r-3528583" data-claire-element-id="5522124">
+
+                    <li id="r-3528582" data-claire-element-id="5522123">
+
+                        <p id="r-3528581" data-claire-element-id="5522122">Code HTML / CSS / JS du projet</p>
+
+
+                    </li>
+
+
+                </ul>
+
+                <h2 id="r-3528588" data-claire-element-id="5568233">Etape 3 :&nbsp;intégration avec l'API de Google Places</h2>
+
+
+                <p id="r-3528585" data-claire-element-id="5522131">Pour l'instant, il n'y a pas beaucoup de restaurants et pas beaucoup d'avis. Heureusement, Google Places propose une API pour récupérer des restaurants et des avis.&nbsp;Servez-vous en pour&nbsp;afficher des restaurants et avis supplémentaires sur votre carte ! Ici la documentation : <a href="https://developers.google.com/places/">https://developers.google.com/places/</a></p>
+
+                <figure>
+
+                    <img src="{{ asset("img/screens-cdc/screen-cdc-avisrest-1.png") }}" alt="">
+                    <figcaption>Vous utiliserez la search api pour trouver des restaurants dans la zone affichée.</figcaption>
+                </figure>
+                <p id="r-3528594" data-claire-element-id="5522135">Lisez bien la documentation pour savoir comment accéder aux données de Google Places et n'hésitez pas à faire autant de recherches Google que nécessaire quand vous butez sur un problème.</p>
+                <p>&nbsp;</p>
+            </div>
+            <div class="userContent userContent--smallCourse">
+                <h2>
+                    Compétences à valider
+                </h2>
+                <ul>
+                    <li>
+                        Développer une application JavaScript complète en respectant un cahier des charges
+                    </li>
+                    <li>
+                        Utiliser une API externe en JavaScript
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

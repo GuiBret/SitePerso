@@ -1,0 +1,50 @@
+<!doctype html>
+
+
+<html>
+    <head>
+        {{ include("CoreBundle:Default:headLinks.html.twig", { "pagename": pagename }) }}
+        <link rel='stylesheet' type="text/css" href="{{ asset('css/contact.css') }}" />
+
+
+    </head>
+
+    <body>
+
+    {{ render(controller('CoreBundle:Header:generateHeader', { "projets" : projets, "path": path, "personal_projects" : personal_projects })) }}
+    <div id="popup-message"></div>
+        <div class='container-fluid content'>
+            <div class='contactform'>
+                <div class='col-xs-12 col-md-4 push-md-4 text-center'>
+                    <h2 class='contactform-title'>{{ "Me contacter" | trans }}</h2>
+                    <form id="contact-form">
+                        <div class='form-group'>
+                            <input type='text' name='nom' id="nom" placeholder="{{ "Votre nom" | trans }}" class='form-control'/>
+                        </div>
+                        <div class='form-group'>
+                            <input type='text' name='email' id='email' placeholder="{{ "Votre e-mail" | trans }}"  class='form-control'/>
+                        </div>
+
+                        <div class='form-group'>
+                            <textarea id='message' placeholder='{{ "Votre message" | trans }}' name="message" rows="10" class='form-control'></textarea>
+                        </div>
+
+                         <button type="submit" class="btn btn-default" id="btn_submit_email">Envoyer</button>
+
+                    </form>
+
+                    <p>{{ "Si le formulaire ne fonctionne pas, vous pouvez me contacter par email en cliquant" | trans }} <a href="mailto:guillaume.bretzner@gmail.com">{{ "ici" | trans }}</a>.</p>
+                </div>
+            </div>
+        </div>
+
+    {{ include('CoreBundle:Default:footer.html.twig') }}
+
+    {{ include("CoreBundle:Default:scriptLinks.html.twig", {"pagename":pagename }) }}
+
+
+    <script type='text/javascript' src="{{ asset("js/contact.js") }}"></script>
+    </body>
+
+
+</html>

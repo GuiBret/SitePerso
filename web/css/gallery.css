@@ -1,0 +1,169 @@
+
+
+h2.image-title {
+    position:absolute;
+    z-index:2; /* Pour garder le titre devant en cas de hover */
+    bottom:5%;
+    width:100%;
+    font-family: "Lato";
+    font-weight:bold;
+    color:white;
+    opacity:0;
+}
+
+#titre-mes-realisations {
+    margin-bottom:2rem;
+}
+
+#main-gallery-div {
+    padding-left:20px;
+    padding-right:20px;
+    perspective:800px;
+}
+
+.image-gallery {
+    width:100%;
+    height:100%; /* Dimensions définies dans elem-a-image */
+    position:relative; /* Pour ne pas avoir d'overflow sur l'effet 3d*/
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.presentation-image {
+    padding-left:0px;
+    padding-right:0px;
+}
+
+h2.title-mobile {
+    opacity:1;
+}
+
+.loading { /* Classe appliquée aux images par défaut pour accueillir le GIF loading, retiré quand l'image est récupérée */
+    height:60%;
+    width:40%;
+}
+
+.image-gallery-mobile {
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    -moz-filter: brightness(50%);
+    -o-filter: brightness(50%);
+}
+
+.elem-a-image {
+    display:flex;
+    width:100%;
+    height:350px;
+    align-items:center;
+    justify-content:center;
+}
+
+h2.title-pc {
+    transform:translateZ(40px);
+}
+
+/* Media query phone portrait & landscape
+        - Affichage des images avec brightness réduite
+        - Affichage du titre (dû à l'impossibilité du hover)
+*/
+
+@media only screen and (max-device-width:768px) {
+
+    #main-gallery-div {
+        padding:0;
+        margin-bottom:3rem;
+    }
+
+    .loading { /* Classe appliquée aux images par défaut pour accueillir le GIF loading, retiré quand l'image est récupérée */
+        height:100%;
+        width:100%;
+    }
+
+}
+
+
+
+/*  Media query phone landscape*/
+
+@media only screen and (min-device-width:492px) and (max-device-width:766px) {
+    #main-gallery-div {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .image-gallery {
+        height:300px;
+    }
+}
+
+@media only screen and (max-device-width:381px) {
+    .elem-a-image {
+        height:200px;
+    }
+}
+
+
+/* Media query laptop & plus grand :
+        - Effet hover réduisant la brillance (jQuery s'occupe d'afficher le titre)
+
+*/
+@media only screen and (min-device-width:962px)  {
+
+    .image-gallery:hover{
+        -webkit-filter: brightness(40%);
+        filter: brightness(40%);
+        -webkit-transform:translateZ(40px);
+        transform:translateZ(40px);
+        z-index:2; /* Pöur éviter l'overflow sur l'image */
+    }
+
+    #main-gallery-div {
+        margin:0;
+        padding-left:40px;
+        padding-right:40px; /* Égal à translateZ */
+    }
+
+    #main-gallery-div, .presentation-image, .elem-a-image { /* Nécessaire à Firefox pour comprendre quelle perspective utiliser (et plus pratique que de recréer une perspective par élément*/
+        transform-style: preserve-3d;
+    }
+
+    /* Application de cet effet pour faire passer le texte au-dessus de l'image pendant l'animation (TODO : ne le déclencher qu'en cas de hover) */
+    h2.image-title {
+        transform:translateZ(40px);
+    }
+
+    #main-gallery-div > :nth-child(6n+1) img:hover{
+        box-shadow:15px 8px .5em rgba(170,170,170,.7);
+    }
+
+    #main-gallery-div > :nth-child(3n+3) img:hover {
+        box-shadow:-15px 8px .5em rgba(170,170,170,.7);
+    }
+    #main-gallery-div > :nth-child(6n+4) img:hover{
+        box-shadow:15px -8px .5em rgba(170,170,170,.7);
+    }
+    #main-gallery-div > :nth-child(6n+6) img:hover{
+        box-shadow:-15px -8px .5em rgba(170,170,170,.7);
+    }
+
+}
+@media only screen and (min-device-width:962px) and (max-device-width:1250px) {
+    .elem-a-image {
+        height:200px;
+    }
+}
+
+@media only screen and (min-device-width:1251px) and (max-device-width:1400px) {
+    .elem-a-image {
+        height:300px;
+    }
+}
+
+
+@media only screen and (min-device-width:767px) and (max-device-width:961px) {
+    .elem-a-image {
+        height:280px;
+    }
+}

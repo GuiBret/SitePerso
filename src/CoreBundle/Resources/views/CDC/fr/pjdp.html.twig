@@ -1,0 +1,65 @@
+<div class="userContent userContent--smallCourse js-userContent" data-javascript-enabled="">
+    <h2>
+        Énoncé
+    </h2>
+    <p id="r-3504556" data-claire-element-id="5520221">Vous avez jusqu'ici développé des petites applications JavaScript. Il faut maintenant vous lancer dans la création d'un projet plus complet, plus solide... bref plus costaud. ;)</p>
+    <p id="r-3527866" data-claire-element-id="5520231">Ce projet consistera à créer un jeu en ligne en JavaScript dans lequel 2 joueurs évoluent chacun leur tour pour s'affronter.&nbsp;Comme dans Highlander, il ne peut en rester qu'un !</p>
+    <figure id="r-3527869" data-claire-element-id="5568392"><img id="r-3527867" src="//sdz-upload.s3.amazonaws.com/prod/upload/apercu15.png" alt="Aperçu du jeu navigateur au tour par tour" data-claire-element-id="5520223">
+        <figcaption>Aperçu du jeu navigateur au tour par tour</figcaption>
+    </figure>
+    <h3 id="r-3527881" data-claire-element-id="5520268">Etape 1 : génération de la carte</h3>
+    <p id="r-3527872" data-claire-element-id="5520234">Commencez par générer aléatoirement la carte du jeu.&nbsp;Chaque case peut être soit :</p>
+    <ul id="r-3527877" data-claire-element-id="5520239">
+        <li id="r-3527874" data-claire-element-id="5520236">
+            <p id="r-3527873" data-claire-element-id="5520235">Vide</p>
+        </li>
+        <li id="r-3527876" data-claire-element-id="5520238">
+            <p id="r-3527875" data-claire-element-id="5520237">Inaccessible (grisée)</p>
+        </li>
+    </ul>
+    <p id="r-3527878" data-claire-element-id="5520240">Sur la carte, un nombre limité d’armes (4 maximum) sera placé aléatoirement et&nbsp;pourra être récolté par les joueurs qui passeraient dessus.</p>
+    <p id="r-3527879" data-claire-element-id="5520241">Vous inventerez au moins 4 types d’arme dans le jeu, avec des dégâts différents. L’arme par défaut qui équipe les joueurs doit infliger 10 points de dégâts. Chaque arme a un nom et un visuel associé.</p>
+    <p id="r-3527880" data-claire-element-id="5520263">Le placement des deux joueurs est lui aussi aléatoire sur la carte au chargement de la partie. Ils ne doivent pas se toucher (ils ne peuvent pas être côte à côte).</p>
+    <p id="r-3527892" data-claire-element-id="5520264">Fichiers à fournir :</p>
+    <ul id="r-3527895" data-claire-element-id="5520267">
+        <li id="r-3527894" data-claire-element-id="5520266">
+            <p id="r-3527893" data-claire-element-id="5520265">Code HTML/CSS/JS du projet</p>
+        </li>
+    </ul>
+    <h3 id="r-3527902" data-claire-element-id="5520275">Etape 2 : les mouvements</h3>
+    <p id="r-3527896" data-claire-element-id="5520269">A chaque tour, un joueur peut se déplacer d’une à trois cases (horizontalement ou verticalement) avant de terminer son tour. Il ne peut évidemment pas passer à travers un obstacle.</p>
+    <p id="r-3527897" data-claire-element-id="5520270">Si un joueur passe sur une case contenant une arme, il laisse son arme actuelle sur place et la remplace par la nouvelle.</p>
+    <p id="r-3527898" data-claire-element-id="5520271">Fichiers à fournir :</p>
+    <ul id="r-3527901" data-claire-element-id="5520274">
+        <li id="r-3527900" data-claire-element-id="5520273">
+            <p id="r-3527899" data-claire-element-id="5520272">Code HTML/CSS/JS du projet</p>
+        </li>
+    </ul>
+    <h3 id="r-3527920" data-claire-element-id="5520306">Etape 3 : le combat !</h3>
+    <p id="r-3527903" data-claire-element-id="5520276">Si les joueurs se croisent sur des cases adjacentes (horizontalement ou verticalement), un combat à mort s’engage.</p>
+    <p id="r-3527904" data-claire-element-id="5520277">Lors d'un combat, le fonctionnement du jeu est le suivant :</p>
+    <ul id="r-3527915" data-claire-element-id="5520288">
+        <li id="r-3527906" data-claire-element-id="5520279">
+            <p id="r-3527905" data-claire-element-id="5520278">Chacun attaque à son tour</p>
+        </li>
+        <li id="r-3527908" data-claire-element-id="5520281">
+            <p id="r-3527907" data-claire-element-id="5520280">Les dégâts infligés dépendent de l’arme possédée par le joueur</p>
+        </li>
+        <li id="r-3527910" data-claire-element-id="5520283">
+            <p id="r-3527909" data-claire-element-id="5520282">Le joueur peut choisir d’attaquer ou de se défendre contre le prochain coup</p>
+        </li>
+        <li id="r-3527912" data-claire-element-id="5520285">
+            <p id="r-3527911" data-claire-element-id="5520284">Lorsque le joueur se défend, il encaisse 50% de dégâts en moins qu’en temps normal</p>
+        </li>
+        <li id="r-3527914" data-claire-element-id="5520287">
+            <p id="r-3527913" data-claire-element-id="5520286">Dès que les points de vie d’un joueur (initialement à 100) tombent à 0&nbsp;, celui-ci a perdu. Un message s’affiche et la partie est terminée.</p>
+        </li>
+    </ul>
+    <p id="r-3527916" data-claire-element-id="5520289">Fichiers à fournir :</p>
+    <ul id="r-3527919" data-claire-element-id="5520305">
+        <li id="r-3527918" data-claire-element-id="5520304">
+            <p id="r-3527917" data-claire-element-id="5520303">Code HTML/CSS/JS du projet</p>
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+</div>

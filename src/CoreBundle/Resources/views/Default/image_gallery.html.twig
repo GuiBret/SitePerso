@@ -1,0 +1,14 @@
+{# empty Twig template #}
+
+<h2 class="text-center" id="titre-mes-realisations">{{ "Mes réalisations" | trans }}</h2>
+
+<div class="row" id="main-gallery-div">
+    {% for projet in projets %}
+        <div class='presentation-image col-xs-12 col-md-6 col-lg-4'>
+            <a href='projets/{{ projet.nom_short }}' class="elem-a-image">
+
+                <img data-src="{{ asset("img/project-images/screen-#{projet.nom_short}.png") }}" src="{{ asset("img/gif/loading.gif") }}" class='image-gallery loading' alt="{{ projet.nom }}"/>
+                <h2 class='image-title text-center'>{{ projet.nom }}</h2></a>
+        </div>
+    {% endfor %}
+</div>

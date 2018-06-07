@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="{{ app.request.locale }}">
+    <head>
+        {{ include("CoreBundle:Default:headLinks.html.twig", {"pagename":pagename }) }}
+        {% stylesheets filter='cssrewrite, scssphp'
+        'css/gallery.css'
+        'css/index.css'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+    </head>
+    <body>
+    {{ include("CoreBundle:Default:header.html.twig", {"projets": projets, "path": path, "personal_projects": personal_projects}) }}
+        <div class='container-fluid content'>
+                <p class="text-center texte-index">{{ "Bienvenue sur mon site," | trans }} <br />
+                    <i>{% trans %}Celui-ci présente l'intégralité de mes projets (qu'ils aient été réalisés dans le cadre de ma formation ou qu'ils soient personnels). Vous pouvez voir ci-dessous une galerie montrant les principaux. {% endtrans %} <br /> {% trans %}Si vous souhaitez sélectionner les projets par technologie utilisée, cliquez {% endtrans %}<a href="/{{ app.request.locale }}/competences"> {{ "ici" | trans }} </a>{% trans %} ou sélectionnez "Mes réalisations => "Par technologie" dans le menu.{% endtrans %}</i>
+                </p>
+
+                {{ include("CoreBundle:Default:image_gallery.html.twig", {"projets" : projets}) }}
+        </div>
+    {{ include('CoreBundle:Default:footer.html.twig') }}
+
+    {{ include("CoreBundle:Default:scriptLinks.html.twig") }}
+
+    <script src="{{ asset("/js/gallery.js") }}"></script>
+
+    </body>
+
+
+</html>

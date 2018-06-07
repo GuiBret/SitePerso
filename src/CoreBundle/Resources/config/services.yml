@@ -1,0 +1,17 @@
+services:
+#    core.example:
+#        class: CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+      em:
+          alias: doctrine.orm.entity_manager
+      LocaleSubscriber:
+                  class: CoreBundle\EventSubscriber\LocaleSubscriber
+                  arguments: ['%kernel.default_locale%']
+      myservice:
+          class: CoreBundle\services\MyService
+          arguments: [ '@doctrine.orm.entity_manager', '@request_stack', '@translate' ]
+          public: true
+
+      translate:
+          class: CoreBundle\services\TranslateService
+          arguments: []
