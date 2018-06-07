@@ -21,6 +21,6 @@ web/css/*
 !web/css/index.css
 !web/css/projet.css
 !web/css/style.css
-
+web/php/github-sync.php
 
 .ftpconfig
