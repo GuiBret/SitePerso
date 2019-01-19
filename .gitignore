@@ -1,10 +1,11 @@
 app/*
-!app/config/**
+!app/AppKernel.php
+!app/autoload.php
+composer.phar
 bin/*
 nbproject/*
 var/*
 vendor/*
-composer.*
 machin.truc
 .web-server-pid
 boxfile.yml
