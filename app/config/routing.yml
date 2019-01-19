@@ -1,0 +1,14 @@
+locale:
+    resource: "@LocaleDetectionBundle/Resources/config/routing.yml"
+    prefix: /
+
+
+core:
+    resource: "@CoreBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}
+    requirements:
+        _locale: en|fr
+
+
+fos_js_routing:
+     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
