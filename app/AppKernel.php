@@ -20,7 +20,7 @@ class AppKernel extends Kernel
             new LocaleDetectionBundle\LocaleDetectionBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle();
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
