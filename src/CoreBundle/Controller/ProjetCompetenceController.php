@@ -11,6 +11,7 @@ namespace CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class ProjetCompetenceController extends Controller
@@ -42,5 +43,17 @@ class ProjetCompetenceController extends Controller
             "personal_projects" => $personal_projects
         ));
         return $content;
+    }
+
+    public function ajaxCompetencesAction(Request $request) {
+
+        $service = $this->container->get("myservice");
+
+        $locale = $request->getLocale();
+
+        $results = $service->getAjaxSkillsByProject($locale);
+
+
+        return new JsonResponse(json_encode($results, JSON_UNESCAPED_UNICODE));
     }
 }

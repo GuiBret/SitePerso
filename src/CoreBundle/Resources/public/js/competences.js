@@ -1,3 +1,6 @@
+
+
+
 var locale = window.location.pathname.split("/")[1];
 
 $(":checkbox:checked.check-specifictechnology").prop("checked", false); // We uncheck all technology checkboxes in case of a "soft" refresh (Hello, Firefox...)
@@ -5,6 +8,12 @@ $(":checkbox:checked.check-specifictechnology").prop("checked", false); // We un
 $("input[name='check-all']").prop("checked", true) // Then, we ensure the "All" chexkbox is checked
 
 $(function() {
+
+    //const routes = require('../../public/js/fos_js_routes.json');
+
+
+    Routing.setRoutingData(JSON.parse('{"base_url":"","routes":{"ajax-competences":{"tokens":[["text","\/ajax-competences"]],"defaults":[],"requirements":[],"hosttokens":[],"methods":[],"schemes":[]}},"prefix":"","host":"localhost","port":"","scheme":"http"}'));
+    // Routing.generate('rep_log_list');
 
     $('a[data-toggle="tooltip"]').tooltip({
         animated:"fade",
@@ -32,13 +41,17 @@ $(function() {
             });
         }
 
-        $.get(`/php/functions.php?locale=${locale}`, {"technos": arr_technos}, function(res) { // arr_technos will be empty if the "All" checkbox is checked
-            let res_json = JSON.parse(res);
+
+        let lang = $("html").attr("lang");
+        $.get("/" + lang + Routing.generate('ajax-competences', {"technos": arr_technos}), function(res_json) {
+            res_json = JSON.parse(res_json);
+
 
             let $ul_projets = $("#projets-concernes"),
                 $li_projet;
             $ul_projets.html("");
 
+            // Pour chaque projet, on va créer un <li> et <a>
             for(let projet of res_json) {
                 $li_projet = $(`<li><a data-toggle="tooltip" title="<img src='/img/screen-${projet.nom_short}.png')' class='tooltip-image' /><div class='tooltip-overlay'><span class='tooltip-title'>${projet.nom}</span><p>${projet.texte}...</p></div>" href='/fr/projets/${projet.nom_short}'>${projet.nom}</a></li>`);$
                 $ul_projets.append($li_projet);
@@ -50,6 +63,7 @@ $(function() {
                 placement:"left",
                 html: true
             })
+
         });
 
     });

@@ -5,6 +5,7 @@ namespace CoreBundle\services;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\RequestStack;
 use CoreBundle\services\TranslateService;
+use Doctrine\DBAL\FetchMode;
 
 
 
@@ -188,6 +189,37 @@ class MyService {
             print "Connection ratée". $e->getMessage();
             die();
         }
+    }
+
+    public function getAjaxSkillsByProject($locale) {
+        $conn = $this->em->getConnection();
+
+
+
+        // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        if(!$_GET["technos"]) { // If we want all technologies
+            $query = "select left(description.texte, 50) as texte, infos_site.* from infos_site inner join description on description.nom_short = infos_site.nom_short where description.langue='$locale';";
+
+
+        } else {
+            $liste_technos = join(",", $_GET["technos"]);
+            $query = "select left(description.texte, 50) as texte, infos_site.* from infos_site inner join description
+                        on description.nom_short = infos_site.nom_short
+                        where description.langue='$locale'
+                        and infos_site.id in
+                        (select projet_concerne from fcts_projets where id_fonctionnalite in
+                        (select id from `fonctionnalites` where nom_min in ($liste_technos)))";
+        }
+
+
+        $stmt = $conn->prepare($query);
+
+        $stmt->execute();
+
+        $results = $stmt->fetchAll(\PDO::FETCH_CLASS);
+
+        return $results;
     }
 }
 
