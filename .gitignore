@@ -1,4 +1,5 @@
 app/*
+!app/config/**
 bin/*
 nbproject/*
 var/*
