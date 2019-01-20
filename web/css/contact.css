@@ -20,3 +20,8 @@ input, textarea, button, select {
 #btn_submit_email {
     cursor:pointer;
 }
+
+
+#message-backup {
+    margin-top: 1rem;
+}
