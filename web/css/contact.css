@@ -16,3 +16,7 @@ input, textarea, button, select {
 .contactform-title {
     margin-bottom:40px;
 }
+
+#btn_submit_email {
+    cursor:pointer;
+}
