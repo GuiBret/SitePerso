@@ -34,10 +34,10 @@ class ContactController extends Controller
         if(!(isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['message']))) {
             return new JsonResponse(array("result" => "KO"));
         } else {
-            $message = $_POST["email"] +  " a envoyé le message suivant : \r\n" + $_POST["message"];
+            $message = $_POST["email"] .  " a envoyé le message suivant : \r\n" . $_POST["message"];
 
             // Si l'envoi du mail a merdé
-            if(mail("guillaume.bretzner@gmail.com", "Message de " + $_POST['nom'], $message)) {
+            if(mail("guillaume.bretzner@gmail.com", "Message de " . $_POST['nom'], $message)) {
                 return new JsonResponse(array("result" => "OK"));
 
             } else {
