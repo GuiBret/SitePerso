@@ -34,15 +34,19 @@ class ContactController extends Controller
         if(!(isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['message']))) {
             return new JsonResponse(array("result" => "KO"));
         } else {
-            $message = $_POST["email"] .  " a envoyé le message suivant : \r\n" . $_POST["message"];
+            $message_content = $_POST["email"] .  " a envoyé le message suivant : \r\n" . $_POST["message"];
 
-            // Si l'envoi du mail a merdé
-            if(mail("guillaume.bretzner@gmail.com", "Message de " . $_POST['nom'], $message)) {
-                return new JsonResponse(array("result" => "OK"));
 
-            } else {
-                return new JsonResponse(array("result" => "KO"));
-            }
+            $email = (new \Swift_Message("Message de " . $_POST['nom']))
+                                       ->setFrom($_POST['email'])
+                                       ->setTo("guillaume.bretzner@gmail.com")
+                                       ->setBody($message_content);
+
+            $this->get('mailer')->send($email);
+
+
+            return new JsonResponse(array("result" => "OK"));
+
         }
     }
 
