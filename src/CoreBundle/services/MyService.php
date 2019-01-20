@@ -198,7 +198,7 @@ class MyService {
 
         // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        if(!$_GET["technos"]) { // If we want all technologies
+        if(!isset($_GET["technos"])) { // If we want all technologies
             $query = "select left(description.texte, 50) as texte, infos_site.* from infos_site inner join description on description.nom_short = infos_site.nom_short where description.langue='$locale';";
 
 
