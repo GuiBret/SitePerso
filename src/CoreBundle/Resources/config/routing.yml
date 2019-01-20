@@ -28,3 +28,9 @@ ajax-competences:
     defaults : { _controller: CoreBundle:ProjetCompetence:ajaxCompetences}
     options:
         expose: true
+
+ajax-contact:
+    path: /ajax-email
+    defaults: { _controller: CoreBundle:Contact:ajaxEmail}
+    options:
+        expose: true

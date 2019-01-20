@@ -3,19 +3,17 @@ $(document).ready(function() {
     $("button#btn_submit_email").on("click", function(e) {
         e.preventDefault();
 
-        var data = {};
-
-        var arr = $("#contact-form :input").serializeArray().reduce(function(obj, item) {
+        let data = {},
+            form_data = $("#contact-form :input").serializeArray().reduce(function(obj, item) {
             data[item.name] = item.value;
-        }, 0);
-
-
-        var message_code = verifForm(data);
+        }, 0),
+            message_code = verifForm(data),
+            lang = $("html").attr("lang");
 
         if(message_code === 0) { // Toutes vérifications faites, validité
             $.ajax({
                 type:"POST",
-                url:"/php/email.php",
+                url: Routing.generate("ajax-contact"),
                 data:data
             }).done(function(data) {
                 showMessage(0);
